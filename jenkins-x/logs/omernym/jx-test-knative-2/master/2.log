@@ -8,3 +8,33 @@ Step: step-working-dir-initializer-w2th9:
 {"level":"info","ts":1566474637.7842393,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
 Step: step-place-tools:
 
+Step: step-git-source-meta-*******-**-test-knative-2-9rrlg:
+
+{"level":"warn","ts":1566474729.8575675,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566474730.1044447,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/*******/**-test-knative-2.git @ 5886b1cd98675ab90662a217b5a96823b101f76c in path /workspace/source"}
+Step: step-git-merge:
+
+{"level":"info","msg":"Using SHAs from PULL_REFS=master:5886b1cd98675ab90662a217b5a96823b101f76c","time":"2019-08-22T11:52:11Z"}
+{"level":"warning","msg":"no SHAs to merge, falling back to initial cloned commit","time":"2019-08-22T11:52:11Z"}
+Step: step-merge-pull-refs:
+
+SKIP merge-pull-refs: Nothing to merge
+Step: step-create-effective-pipeline:
+
+{"level":"info","msg":"Deleting and cloning the Jenkins X versions repo","time":"2019-08-22T11:52:11Z"}
+{"level":"info","msg":"Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions","time":"2019-08-22T11:52:11Z"}
+{"level":"info","msg":"Effective pipeline written to jenkins-x-release-effective.yml","time":"2019-08-22T11:52:12Z"}
+Step: step-create-tekton-crds:
+
+{"level":"info","msg":"running command: echo \\$(**-release-version) \u003e VERSION","time":"2019-08-22T11:52:13Z"}
+{"level":"info","msg":"","time":"2019-08-22T11:52:14Z"}
+{"level":"info","msg":"running command: ** step tag --version \\$(cat VERSION)","time":"2019-08-22T11:52:14Z"}
+{"level":"info","msg":"Updating chart version in charts/**-test-knative-2/Chart.yaml to 0.0.1","time":"2019-08-22T11:52:14Z"}
+{"level":"info","msg":"Updating repository in charts/**-test-knative-2/values.yaml to 733373435183.dkr.ecr.us-east-1.amazonaws.com/*******/**-test-knative-2","time":"2019-08-22T11:52:14Z"}
+{"level":"info","msg":"Updating tag in charts/**-test-knative-2/values.yaml to 0.0.1","time":"2019-08-22T11:52:14Z"}
+{"level":"info","msg":"Tag v0.0.1 created and pushed to remote origin","time":"2019-08-22T11:52:16Z"}
+{"level":"info","msg":"","time":"2019-08-22T11:52:16Z"}
+{"level":"warning","msg":"failed to find secret kaniko-secret in namespace **: secrets \"kaniko-secret\" not found","time":"2019-08-22T11:52:16Z"}
+{"level":"info","msg":"PipelineActivity for *******-**-test-knative-2-master-2","time":"2019-08-22T11:52:16Z"}
+{"level":"info","msg":"Applying changes ","time":"2019-08-22T11:52:16Z"}
+error: failed to apply Tekton CRDs: failed to create/update PipelineResource *******-**-test-knative-2-maste in namespace **: failed to get PipelineResource *******-**-test-knative-2-maste with pipelineresources.tekton.dev "*******-**-test-knative-2-maste" not found after failing to create a new one: Internal error occurred: failed calling webhook "webhook.tekton.dev": Post https://tekton-pipelines-webhook.**.svc:443/?timeout=30s: context deadline exceeded (Client.Timeout exceeded while awaiting headers)
